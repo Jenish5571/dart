@@ -1,5 +1,3 @@
-
-
 class Student
 {
   late int id;

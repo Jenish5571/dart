@@ -10,7 +10,8 @@ class Market
       {required int item_no,
       required String item_name,
       required int qty,
-      required double dis}) {
+      required double dis}
+      ) {
     this._item_no = item_no;
     this._item_name = item_name;
     this._qty = qty;
