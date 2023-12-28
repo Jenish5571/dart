@@ -2,69 +2,65 @@ import 'dart:io';
 
 void main() 
 {
-  int size;
+  int n;
   int opearation;
   List array=[];
 
-    stdout.write("Enter your choice: ");
-    size = int.parse(stdin.readLineSync()!);
+    stdout.write("Enter number choice: ");
+    n = int.parse(stdin.readLineSync()!);
 
-    for(int i = 0; i < size; i++)
+    for(int i = 0; i < n; i++)
     {
       stdout.write("enter the ${i + 1} Elements: ");
       array.add(int.parse(stdin.readLineSync()!));
     }
+    
+    print("Menu:");
+    print("1. Insert element");
+    print("2. Delete element");
+    print("3. Update element");
+    print("4. View elements");
+    print("5. Exit element");
 
-    do
+    stdout.write("enter number oparation :");
+    opearation = int.parse(stdin.readLineSync()!);
+
+    switch (opearation)
     {
-      print("Menu:");
-      print("1. Insert element");
-      print("2. Delete element");
-      print("3. Update element");
-      print("4. View elements");
-      print("5. Exit element");
+      case 1:
+        stdout.write("enter element insert: ");
+        int element = int.parse(stdin.readLineSync()!);
 
-      stdout.write("enter your oparation");
-      opearation = int.parse(stdin.readLineSync()!);
+        array.add(element);
+        print("Insert element sucessfully : $element");
+        break;
 
-      switch (opearation)
-      {
-        case 1:
-          stdout.write("enter element insert: ");
-          int element = int.parse(stdin.readLineSync()!);
+      case 2:
+        int Delete;
 
-          array.add(element);
-          print("Insert element : $element successfully!");
-          break;
+        stdout.write("delete number :");
+        Delete = int.parse(stdin.readLineSync()!);
 
-        case 2:
-          int Delete;
+        array.remove(Delete);
+        print("delete element sucessfully : $Delete");
+        break;
 
-          stdout.write("delete number :");
-          Delete = int.parse(stdin.readLineSync()!);
+      case 3:
+        int update;
 
-          array.remove(Delete);
-          print("delete element : $Delete successfully!");
-          break;
+        stdout.write("update number :");
+        update = int.parse(stdin.readLineSync()!);
 
-        case 3:
-          int update;
+        array.add(update);
+        print("update element sucessfully : $update");
+        break;
 
-          stdout.write("update number :");
-          update = int.parse(stdin.readLineSync()!);
+      case 4:
+        print("elements in the array: $array");
+        break;
 
-          array.add(update);
-          print("update element : $update successfully!");
-          break;
-
-        case 4:
-          print("elements in the array: $array");
-          break;
-
-        default:
-          print("Invalid choice...");
-          break;
-      }
-
-    }while (opearation !=5);   
-  }
+      default:
+        print("Invalid choice...");
+        break;
+    }
+}

@@ -3,7 +3,7 @@ import 'dart:io';
 void main()
 {
   int sum = 0;
-  int choice = -1; 
+  int choice = 0; 
   List<List<int>> array = [];
  
   do 

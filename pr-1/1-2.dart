@@ -4,22 +4,22 @@ void main()
   List array=[];
 
   stdout.write("enter any number :");
-  int length = int.parse(stdin.readLineSync()!);
+  int n = int.parse(stdin.readLineSync()!);
 
-  for(int i = 0; i < length; i++)
+  for(int i = 0; i < n; i++)
   {
     stdout.write("Enter any elements:");
     array.add(int.parse(stdin.readLineSync()!));
   }
 
-  var largest=array[0];
+  var Big = array[0];
 
-  for(int i=0; i<length; i++)
+  for(int i = 0; i < n; i++)
   {
-    if(largest < array[i])
+    if(Big < array[i])
     {
-      largest = array[i];
+      Big = array[i];
     }
   }
-  print("largest Elements: $largest");
+  print("Big number : $Big");
 }
