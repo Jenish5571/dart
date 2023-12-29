@@ -4,7 +4,24 @@ void main()
 {
   int sum = 0;
   int choice = 0; 
-  List<List<int>> array = [];
+  List<List<int>> size = List.generate(3, (index) => List.filled(3, 0));
+
+  for (int i = 0; i < 3; i++) 
+  {
+    for (int j = 0; j < 3; j++) 
+    {
+      stdout.write("Enter array elements : ");
+      size[i][j] = int.parse(stdin.readLineSync()!);
+    }
+  }
+
+  for (int i = 0; i < 3; i++) 
+  {
+    for (int j = 0; j < 3; j++) 
+    {
+      stdout.write("${size[i][j]} ");
+    }
+  }
  
   do 
   {
@@ -23,16 +40,9 @@ void main()
       case 1:
         for (int i = 0; i < 3; i++) 
         {
-          for (int j = 0; j < 3; j++)
+          for (int j = 0; j < 3; j++) 
           {
-            List<int> row = [];
-            for (int j = 0; j < 3; j++) 
-              {
-                stdout.write("Enter row number and col number :");
-                int num = int.parse(stdin.readLineSync()!);
-                sum += num;
-              }
-              array.add(row);
+            sum += size[i][j];
           }
         }
         print("Sum of all elements: $sum");
@@ -41,9 +51,10 @@ void main()
       case 2:
         print("Enter the row number :");
         int row = int.parse(stdin.readLineSync()!);
-        for (int i = 0; i < 3; i++)
+
+        for (int j = 0; j < 3; j++) 
         {
-          sum += row;
+          sum += size[row][j];
         }
         print("Sum of row : $sum");
         break;
@@ -51,9 +62,9 @@ void main()
       case 3:
         print("Enter the column number:");
         int col = int.parse(stdin.readLineSync()!);
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++) 
         {
-          sum += col;
+          sum += size[i][col];
         }
         print("Sum of column : $sum");
         break;
@@ -62,10 +73,7 @@ void main()
         int Diagonal = 0;
         for (int i = 0; i < 3; i++)
         {
-          for(int j = 0; j < 3; j++)
-          {
-            Diagonal += array[i][j];
-          }  
+          Diagonal += size[i][i];  
         }
         print("Sum of diagonal : $Diagonal ");
         break;
@@ -74,15 +82,9 @@ void main()
         int AntiDiagonal = 0;
         for (int i = 0; i < 3; i++)
         {
-          for (int j = 0; j < 3; j++)
-          {
-            if (i+j == ((3+1)-2))
-            {
-              AntiDiagonal += array[i][j];
-            }
-          }
+          AntiDiagonal += size[i][2-i];   
         }
-        print("The Sum Of Anti-Diagonal : $AntiDiagonal ");
+        print("The Sum Of AntiDiagonal : $AntiDiagonal ");
         break;
     }       
   }while(choice !=0);

@@ -1,20 +1,23 @@
-int getSum({required List<int> list}) 
+import 'dart:io';
+
+int add({required List<int> number}) 
 {
-  int sum = 0; 
-  for (int i = 0; i < list.length; i++) 
+  int Sum = 0; 
+
+  for (int i = 0; i < number.length; i++) 
   {
-    sum += list[i];
+    Sum += number[i];
   }
-  return sum;
+  return Sum;
 }
 
 void main() 
 {
-  List<int> list = [10,20,30,40,50];
+  List<int> array = [120,220,320,420,520];
 
-  int sum = getSum(list : list);
+  int Sum = add(number : array);
 
-  print("Sum of all elements of list : $sum");
+  print("Sum array list : $Sum");
 
 }
 
